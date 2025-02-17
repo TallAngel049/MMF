@@ -1,5 +1,5 @@
 import pandas
-
+import random
 
 # Functions fo here
 def make_statement(statement, decoration):
@@ -198,10 +198,22 @@ for var_item in add_dollars:
 # Output  movie frame without index
 print(mini_movie_frame.to_string(index=False))
 
-
 print()
 print(f"Total Paid: ${total_paid:.2f}")
 print(f"Total Profit: ${total_profit:.2f}")
+
+# choose a random winner
+winner = random.choice(all_names)
+
+# find index a winner
+winner_index = all_names.index(winner)
+print("winner", winner, "list position", winner_index)
+
+# retrieve total won
+total_won = mini_movie_frame.at[winner_index, 'Total']
+
+# winner announcement
+print(f"The lucky winner is {winner}. Their ticket worth {total_won} is free!")
 
 if tickets_sold == MAX_TICKETS:
     print(f"You have sold all the tickets (ie; {MAX_TICKETS} tickets)")
